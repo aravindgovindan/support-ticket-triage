@@ -5,12 +5,32 @@ export default function App() {
   const [ticketText, setTicketText] = useState<string>("");
   const [result, setResult] = useState<TriageResult>({});
 
+  const triageTicket = async (payload: string) => {
+    try {
+      const response = await fetch('/categorize', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ticketText: payload})
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data: TriageResult = await response.json();
+      setResult(data);
+    } catch (error) {
+      console.error('Failed to categorize ticket:', error);
+    }
+  }
+
   const handleSubmit = () => {
     if (!ticketText.trim()) return;
 
-    // Placeholder: API call goes here later
-    setResult({ category: "Placeholder", urgency: "unknown" });
+    triageTicket(ticketText.trim())
   };
+
+
 
   return (
     <div style={{ maxWidth: 600, margin: "40px auto", fontFamily: "sans-serif" }}>
