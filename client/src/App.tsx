@@ -38,7 +38,7 @@ export default function App() {
 
       <textarea
         rows={8}
-        style={{ width: "100%", padding: 8, boxSizing: "border-box" }}
+        style={{ width: "100%", padding: 8, boxSizing: "border-box", resize: "vertical" }}
         placeholder="Paste the support ticket text here..."
         value={ticketText}
         onChange={(e) => setTicketText(e.target.value)}
