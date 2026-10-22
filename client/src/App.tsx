@@ -52,8 +52,8 @@ export default function App() {
         <h2>Result</h2>
         {result ? (
           <>
-            <p><strong>Category:</strong> {result.category}</p>
-            <p><strong>Urgency:</strong> {result.urgency}</p>
+            <p style={{textTransform: "capitalize"}}><strong>Category:</strong> {result.category}</p>
+            <p style={{textTransform: "capitalize"}}><strong>Urgency:</strong> {result.urgency}</p>
           </>
         ) : (
           <p>No result yet.</p>
