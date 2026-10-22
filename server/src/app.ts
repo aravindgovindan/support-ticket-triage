@@ -33,7 +33,7 @@ app.post('/categorize', async (req: Request, res: Response) => {
 
     const result = await jev.systemOne({
         model: 'jev-1.13',
-        state: 'I woke up this morning to find my entire account locked for suspicious activity. My direct deposit of $1,850 hit yesterday and now I cannot buy groceries or pay my rent that is due today. Customer service via chat told me to wait 2-3 business days. This is my only money please unlock it.',
+        state: ticketText,
         questions: {
             department: {
                 type: 'choice',
